@@ -1,0 +1,22 @@
+ap
+--
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-deployment
+  labels:
+    app: myapp
+spec:
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: demo-container
+          image: demo:v0.1
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
